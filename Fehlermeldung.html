@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fehlermeldungen</title>
+    <style>
+
+.error-buttons {
+  width: 590px;
+  margin: 0 auto;
+}
+
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 50px;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h1, h2, a, button {
+            color: #0099cc;
+        }
+
+        ul {
+            list-style-type: none;
+            font-size: 20px;
+            margin-left: 40px;
+            text-align: left;
+        }
+
+        button.device {
+            background-color: #0099cc;
+            color: white;
+            padding: 16px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+            font-size: 18px;
+        }
+
+        button.error {
+            background-color: red;
+            color: white;
+            padding: 16px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor:pointer; 
+            margin-bottom:20px; 
+            font-size:18px; 
+            width:100%; 
+        }
+
+        div#error-messages, div#solutions, div#browser-options, div#browser-instructions {
+          display:none; 
+          margin-top:20px; 
+          padding:10px; 
+          border-radius:5px; 
+          background-color:#f2f2f2; 
+        }
+
+        .show {
+          display:block !important; 
+        }
+
+        ul li {
+          cursor:pointer; 
+        }
+
+        ul li:hover {
+          text-decoration:underline; 
+        }
+
+        .logo {
+          width:100px; 
+          height:auto; 
+        }
+
+        .fade-in {
+          animation-name:fadeIn; 
+          animation-duration:.5s; 
+        }
+
+      @keyframes fadeIn { 
+          from { opacity:.5; } 
+          to { opacity:.9; }
+      }
+
+      #browser-options h2 {
+          white-space: nowrap;
+      }
+
+
+#browser-options h2 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+}
+
+#solutions ul,
+#browser-options {
+    text-align: center;
+}
+
+#solutions ul,
+#browser-options {
+    width: 100%;
+    margin: 0 auto;
+}
+
+#browser-options button {
+    width: 80%;
+    margin: 0 1%;
+}
+
+#solutions ul {
+    width: 30%;
+    margin: 0 auto;
+}
+
+#feedback-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #0099cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#feedback-form {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+
+#feedback-message {
+    width: 100%;
+}
+
+
+#error-messages {
+  text-align: left;
+}
+
+#error-messages #search-input {
+  display: inline-block;
+  width: auto;
+  margin: 0;
+}
+
+#error-messages .error-title {
+  text-align: center;
+}
+
+#search-input {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #0099cc;
+  border-radius: 4px;
+}
+
+#search-input:focus {
+  outline: none;
+  border: 2px solid #0099cc;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+      
+        
+      <div id="device-selection">
+          <h1>Bitte wähle dein Gerät aus</h1>
+          <button class="device" onclick="showErrorMessages('Handy')">Handy</button>
+          <button class="device" onclick="showErrorMessages('PC')">PC</button>
+          <button class="device" onclick="showErrorMessages('Laptop')">Laptop</button>
+      </div>
+
+      <div id="error-messages">
+          <h2 class="error-title">Wähle die erhaltende Fehlermeldung aus</h2>
+          <input type="text" id="search-input" placeholder="Suche nach Fehlermeldungen..."> 
+
+ 
+          <div class="error-buttons">
+                <button id="error1" class="error" data-target="solutions" onclick="showSolutions(this)">Download ist fehlgeschlagen</button>
+                <button id="error2" class="error" data-target="solutions" onclick="showSolutions(this)">Download nicht möglich</button>
+                <button id="error3" class="error" data-target="solutions" onclick="showSolutions(this)">Der Download braucht zu lange</button>
+                <button id="error4" class="error" data-target="solutions" onclick="showSolutions(this)">Auf dem Handy kann nicht navigiert werden</button>
+                <button id="error5" class="error" data-target="solutions" onclick="showSolutions(this)">Seitenladefehler 404</button>
+                <button id="error6" class="error" data-target="solutions" onclick="showSolutions(this)">Es ist ein unbekannter Fehler aufgetreten</button> 
+		<button id="error7" class="error" data-target="solutions" onclick="showSolutions(this)">Test1</button>
+		<button id="error8" class="error" data-target="solutions" onclick="showSolutions(this)">Test2</button>
+		<button id="error9" class="error" data-target="solutions" onclick="showSolutions(this)">Test3</button>
+		<button id="error10" class="error" data-target="solutions" onclick="showSolutions(this)">Test4</button>
+		<button id="error11" class="error" data-target="solutions" onclick="showSolutions(this)">Test5</button>
+		<button id="error12" class="error" data-target="solutions" onclick="showSolutions(this)">Test8</button>
+		<button id="error13" class="error" data-target="solutions" onclick="showSolutions(this)">Test6</button>
+		<button id="error14" class="error" data-target="solutions" onclick="showSolutions(this)">Test7</button>
+	</div> 
+
+
+<div id="browser-options">
+    <h2>Bitte wähle deinen Browser aus:</h2>
+    <button onclick="showInstructions('Chrome')">Chrome</button>
+    <button onclick="showInstructions('Safari')">Safari</button>
+    <button onclick="showInstructions('Samsung Internet')">Samsung Internet</button>
+</div>
+
+
+<div id="solutions"> 
+<h2>Mögliche Ursachen:</h2> 
+<ul> 
+<li id="cause1" data-target="browser-options" onclick="showBrowserOptions(this)"></li> 
+<li id="cause2" data-target="browser-options" onclick="showBrowserOptions(this)">Cross-tracking</li> 
+</ul> 
+</div>
+
+
+<div id="browser-instructions">
+    <h2 id="instruction-title"></h2>
+    <p id="instruction-text"></p>
+</div>
+
+<button id="feedback-button">Ist deine Fehlermeldung nicht dabei?</button>
+<div id="feedback-form" style="display: none;">
+    <h3>Schreib uns eine Nachricht:</h3>
+    <textarea id="feedback-message" rows="4" cols="50"></textarea><br>
+    <label for="feedback-screenshot">Screenshot (optional):</label><br>
+    <input type="file" id="feedback-screenshot" accept="image/*"><br><br>
+    <button id="send-feedback">Senden</button>
+</div>
+
+
+  <script>
+    function showErrorMessages(device) {
+    // Verstecke die Geräteauswahl
+    document.getElementById("device-selection").style.display = "none";
+    
+    // Hole alle Fehlermeldungen
+    var errorButtons = document.querySelectorAll(".error");
+    
+    // Durchlaufe alle Fehlermeldungen
+    for (var i = 0; i < errorButtons.length; i++) {
+        // Überprüfe, ob die Fehlermeldung für das ausgewählte Gerät angezeigt werden soll
+        if (device === "Laptop" && (errorButtons[i].id === "error1" || errorButtons[i].id === "error3" || errorButtons[i].id === "error12")) {
+            // Wenn ja, zeige die Fehlermeldung an
+            errorButtons[i].style.display = "block";
+        } else if (device === "Handy" && (errorButtons[i].id === "error2" || errorButtons[i].id === "error4" || errorButtons[i].id === "error7" || errorButtons[i].id === "error8" || errorButtons[i].id === "error9" || errorButtons[i].id === "error10" || errorButtons[i].id === "error11")) {
+            // Wenn ja, zeige die Fehlermeldung an
+            errorButtons[i].style.display = "block";
+        } else if (device === "PC" && (errorButtons[i].id === "error5" || errorButtons[i].id === "error6" || errorButtons[i].id === "error13" || errorButtons[i].id === "error14")) {
+            // Wenn ja, zeige die Fehlermeldung an
+            errorButtons[i].style.display = "block";
+        } else {
+            // Wenn nicht, verstecke die Fehlermeldung
+            errorButtons[i].style.display = "none";
+        }
+    }
+    
+    // Zeige die Fehlermeldungen an
+    document.getElementById("error-messages").style.display = "block";
+    document.getElementById("error-messages").classList.add("fade-in");
+}
+
+
+
+
+
+    function showSolutions(button) {
+    // Hole das Ziel-Element
+    var target = button.dataset.target;
+    var solutions = document.getElementById(target);
+    
+    // Leere die Liste der möglichen Ursachen
+    var causesList = solutions.querySelector("ul");
+    causesList.innerHTML = "";
+    
+    // Füge mögliche Ursachen basierend auf der ausgewählten Fehlermeldung hinzu
+    if (button.id === "error1") {
+        causesList.innerHTML += "<li data-target='browser-options' onclick='showBrowserOptions(this)'>Ursache 1 für Fehler 1</li>";
+        causesList.innerHTML += "<li data-target='browser-options' onclick='showBrowserOptions(this)'>Ursache 2 für Fehler 1</li>";
+    } else if (button.id === "error2") {
+        causesList.innerHTML += "<li data-target='browser-options' onclick='showBrowserOptions(this)'>Ursache 1 für Fehler 2</li>";
+        causesList.innerHTML += "<li data-target='browser-options' onclick='showBrowserOptions(this)'>Ursache 2 für Fehler 2</li>";
+    } else if (button.id === "error12") {
+        causesList.innerHTML += "<li data-target='browser-options' onclick='showBrowserOptions(this)'>Ursache 1 für Test8</li>";
+        causesList.innerHTML += "<li data-target='browser-options' onclick='showBrowserOptions(this)'>Ursache 2 für Test8</li>";
+    } else if (button.id === "error13") {
+        causesList.innerHTML += "<li data-target='browser-options' onclick='showBrowserOptions(this)'>Ursache 1 für Test6</li>";
+        causesList.innerHTML += "<li data-target='browser-options' onclick='showBrowserOptions(this)'>Ursache 2 für Test6</li>";
+    } else if (button.id === "error14") {
+        causesList.innerHTML += "<li data-target='browser-options' onclick='showBrowserOptions(this)'>Ursache 1 für Test7</li>";
+        causesList.innerHTML += "<li data-target='browser-options' onclick='showBrowserOptions(this)'>Ursache 2 für Test7</li>";
+    } else if (button.id === "error7") {
+        causesList.innerHTML += "<li data-target='browser-options' onclick='showBrowserOptions(this)'>Ursache 1 für Test1</li>";
+        causesList.innerHTML += "<li data-target='browser-options' onclick='showBrowserOptions(this)'>Ursache 2 für Test1</li>";
+    } else if (button.id === "error8") {
+        causesList.innerHTML += "<li data-target='browser-options' onclick='showBrowserOptions(this)'>Ursache 1 für Test2</li>";
+        causesList.innerHTML += "<li data-target='browser-options' onclick='showBrowserOptions(this)'>Ursache 2 für Test2</li>";
+    } else if (button.id === "error9") {
+        causesList.innerHTML += "<li data-target='browser-options' onclick='showBrowserOptions(this)'>Ursache 1 für Test3</li>";
+        causesList.innerHTML += "<li data-target='browser-options' onclick='showBrowserOptions(this)'>Ursache 2 für Test3</li>";
+    } else if (button.id === "error10") {
+        causesList.innerHTML += "<li data-target='browser-options' onclick='showBrowserOptions(this)'>Ursache 1 für Test4</li>";
+        causesList.innerHTML += "<li data-target='browser-options' onclick='showBrowserOptions(this)'>Ursache 2 für Test4</li>";
+    } else if (button.id === "error11") {
+        causesList.innerHTML += "<li data-target='browser-options' onclick='showBrowserOptions(this)'>Ursache 1 für Test5</li>";
+        causesList.innerHTML += "<li data-target='browser-options' onclick='showBrowserOptions(this)'>Ursache 2 für Test5</li>";
+    } else if (button.id === "error4") {
+        causesList.innerHTML += "<li data-target='browser-options' onclick='showBrowserOptions(this)'>Ursache 1 für Test</li>";
+        causesList.innerHTML += "<li data-target='browser-options' onclick='showBrowserOptions(this)'>Ursache 2 für Test</li>";
+	} else if (button.id === "error5") {
+        causesList.innerHTML += "<li data-target='browser-options' onclick='showBrowserOptions(this)'>Ursache 1 für das</li>";
+        causesList.innerHTML += "<li data-target='browser-options' onclick='showBrowserOptions(this)'>Ursache 2 für das</li>";
+	} else if (button.id === "error3") {
+        causesList.innerHTML += "<li data-target='browser-options' onclick='showBrowserOptions(this)'>Ursache 1 für er3</li>";
+        causesList.innerHTML += "<li data-target='browser-options' onclick='showBrowserOptions(this)'>Ursache 2 für er3</li>";
+	} else if (button.id === "error6") {
+        causesList.innerHTML += "<li data-target='browser-options' onclick='showBrowserOptions(this)'>Ursache 1 für er6</li>";
+        causesList.innerHTML += "<li data-target='browser-options' onclick='showBrowserOptions(this)'>Ursache 2 für er6</li>";
+    }
+    
+    // Füge das Ziel-Element nach dem ausgewählten Button hinzu
+    button.insertAdjacentElement("afterend", solutions);
+    
+    // Zeige das Ziel-Element an
+    solutions.style.display = "block";
+    solutions.classList.add("fade-in");
+}
+
+
+
+
+
+    function showBrowserOptions(cause) {
+        var target = cause.dataset.target;
+        var browserOptions = document.getElementById(target);
+        var solutions = document.getElementById("solutions");
+        solutions.insertAdjacentElement("afterend", browserOptions);
+        browserOptions.classList.toggle("show");
+        browserOptions.classList.add("fade-in");
+    }
+
+    function showInstructions(browser) {
+    // Verstecke die Browser-Optionen
+    var browserOptions = document.getElementById("browser-options");
+    browserOptions.style.display = "none";
+
+    // Zeige die Browser-Anweisungen an
+    var browserInstructions = document.getElementById("browser-instructions");
+    browserOptions.insertAdjacentElement("afterend", browserInstructions);
+    browserInstructions.style.display = "block";
+    browserInstructions.classList.add("fade-in");
+
+    // Hole die Elemente für den Anweisungstitel und -text
+    var instructionTitle = document.getElementById("instruction-title");
+    var instructionText = document.getElementById("instruction-text");
+
+    // Hole die ausgewählte Fehlermeldung
+    var errorButtons = document.querySelectorAll(".error");
+    var selectedError;
+    for (var i = 0; i < errorButtons.length; i++) {
+        if (errorButtons[i].nextElementSibling.id === "solutions") {
+            selectedError = errorButtons[i].id;
+            break;
+        }
+    }
+    
+    // Hole die ausgewählte mögliche Ursache
+    var selectedCauseElement = document.querySelector("#solutions li.show");
+    var selectedCause = selectedCauseElement ? selectedCauseElement.textContent : "";
+    
+    // Überprüfe den Wert von Variablen mit console.log
+    console.log("selectedError:", selectedError);
+    console.log("selectedCause:", selectedCause);
+    console.log("browser:", browser);
+
+    // Definiere ein Objekt mit Anweisungen für verschiedene Kombinationen von Fehlermeldungen, möglichen Ursachen und Browsern
+    var instructions = {
+        "error1": {
+            "Ursache 1 für Fehler 1": {
+                "Chrome": {
+                    title: "Anweisungen für Fehler 1, Ursache 1 in Chrome",
+                    text: "Anleitung..."
+                },
+                "Safari": {
+                    title: "Anweisungen für Fehler 1, Ursache 1 in Safari",
+                    text: "Anleitung..."
+                }
+            },
+            "Ursache 2 für Fehler 1": {
+                "Chrome": {
+                    title: "Anweisungen für Fehler 1, Ursache 2 in Chrome",
+                    text: "Anleitung..."
+                },
+                "Safari": {
+                    title: "Anweisungen für Fehler 1, Ursache 2 in Safari",
+                    text: "Anleitung..."
+                }
+            }
+        },
+        "error2": {
+            "Ursache 1 für Fehler 2": {
+                "Chrome": {
+                    title: "Anweisungen für Fehler 2, Ursache 1 in Chrome",
+                    text: "Anleitung..."
+                },
+                "Safari": {
+                    title: "Anweisungen für Fehler 2, Ursache 1 in Safari",
+                    text: "Anleitung..."
+                }
+            },
+            "Ursache 2 für Fehler 2": {
+                "Chrome": {
+                    title: "Anweisungen für Fehler 2, Ursache 2 in Chrome",
+                    text: "Anleitung..."
+                },
+                "Safari": {
+                    title: "Anweisungen für Fehler 2, Ursache 2 in Safari",
+                    text: "Anleitung..."
+                }
+            }
+        }
+    };
+ // Füge Anweisungen für eine bestimmte Kombination von Fehlermeldung, möglicher Ursache und Browser hinzu
+    instructions["error1"]["Ursache 1 für Fehler 1"]["Chrome"] = {
+        title: "Anweisungen für Fehler 1, Ursache 1 in Chrome",
+        text: "Anleitung..."
+    };
+
+
+    // Überprüfe, ob Anweisungen für die ausgewählte Kombination von Fehlermeldung, möglicher Ursache und Browser definiert sind
+    if (instructions[selectedError] && instructions[selectedError][selectedCause] && instructions[selectedError][selectedCause][browser]) {
+        // Wenn ja, zeige die entsprechenden Anweisungen an
+        instructionTitle.innerText = instructions[selectedError][selectedCause][browser].title;
+        instructionText.innerText = instructions[selectedError][selectedCause][browser].text;
+    } else {
+        // Wenn nicht, zeige eine Meldung an, dass keine Anweisungen verfügbar sind
+        instructionTitle.innerText = "";
+        instructionText.innerText = "Es sind keine Anweisungen für diese Kombination von Fehlermeldung, möglicher Ursache und Browser verfügbar.";
+    }
+}
+
+
+
+
+    function goBack() {
+        window.history.back();
+    }
+
+    function goHome() {
+        window.location.reload();
+    }
+
+document.getElementById("feedback-button").onclick = function() {
+    document.getElementById("feedback-form").style.display = "block";
+}
+
+document.getElementById("send-feedback").onclick = function() {
+    var message = document.getElementById("feedback-message").value;
+    var screenshot = document.getElementById("feedback-screenshot").files[0];
+    // Hier kannst du den Code zum Senden der Nachricht und des Screenshots hinzufügen
+    alert("Danke für deine Nachricht!");
+}
+
+
+  // Funktion zum Filtern der Fehlermeldungen basierend auf dem Suchbegriff
+  function filterErrors() {
+    // Hole den Wert aus dem Suchfeld
+    var searchTerm = document.getElementById("search-input").value.toLowerCase();
+    
+    // Hole alle Fehlermeldungen
+    var errorButtons = document.querySelectorAll(".error");
+    
+    // Durchlaufe alle Fehlermeldungen
+    for (var i = 0; i < errorButtons.length; i++) {
+      // Hole den Text der Fehlermeldung
+      var errorText = errorButtons[i].textContent.toLowerCase();
+      
+      // Überprüfe, ob der Suchbegriff im Text der Fehlermeldung vorkommt
+      if (errorText.indexOf(searchTerm) > -1) {
+        // Wenn ja, zeige die Fehlermeldung an
+        errorButtons[i].style.display = "block";
+      } else {
+        // Wenn nicht, verstecke die Fehlermeldung
+        errorButtons[i].style.display = "none";
+      }
+    }
+  }
+  
+  // Füge einen Event-Listener zum Suchfeld hinzu, um die filterErrors-Funktion bei jeder Eingabe aufzurufen
+  document.getElementById("search-input").addEventListener("input", filterErrors);
+</script>
+
+
+
+
+</body>
+</html>
+
